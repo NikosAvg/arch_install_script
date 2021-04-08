@@ -1,1 +1,1 @@
-# arch_script
+# Arch install script
