@@ -6,16 +6,16 @@ if [ "$x" -eq 0 ]; then
 	echo "Online."
 	echo "Syncronizing clock..."
 	timedatectl set-ntp true
-	echo "Availiable disk to partition:"
+	echo "Availiable disks to partition:"
 	readarray -t lines < <(lsblk --nodeps -no name,size,type,mountpoint | grep disk)
-	PS3='Please enter your choise: '
+	PS3='Please enter your choice: '
 	select opt in "${lines[@]}"
 	do
 		drive=${opt%%" "*}
 		echo "Creating partitions on $drive"
-		echo "creating boot partition..."
+		echo "Creating boot partition..."
 		printf "o\nn\np\n\n\n+128M\na\nw" | fdisk /dev/"$drive" >/dev/null
-		echo "creating system partition..."
+		echo "Creating system partition..."
 		printf "n\np\n\n\n\nw" | fdisk /dev/"$drive" >/dev/null
 		#Make filesystems
 		mkfs.ext4 /dev/"$drive"1 >/dev/null
@@ -24,7 +24,7 @@ if [ "$x" -eq 0 ]; then
 		mount /dev/"$drive"2 /mnt
 		mkdir /mnt/boot
 		mount /dev/"$drive"1 /mnt/boot
-		echo "Installing"
+		echo "Installing..."
 		pacstrap /mnt base base-devel linux linux-firmware vim git
 		genfstab -U /mnt >> /mnt/etc/fstab
 		chmod +x install_p2.sh
@@ -33,7 +33,8 @@ if [ "$x" -eq 0 ]; then
 		arch-chroot /mnt ./install_p2.sh
 		umount -R /mnt
 		echo "Arch is installed on your system!"
-		echo "Reboot!"
+		echo "You are now a Linux elitist!!!"
+		echo "Please reboot and remove the installation media!"
 		break
 	done		
 	
