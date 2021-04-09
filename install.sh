@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
 # check internet connection.
-x=`ping -q -c 1 -W 1 gnu.org >&/dev/null; echo $?`
-if [ $x -eq 0 ]; then
+x=$(ping -q -c 1 -W 1 gnu.org >/dev/null; echo $?)
+if [ "$x" -eq 0 ]; then
 	echo "Online."
 	echo "Syncronizing clock..."
 	timedatectl set-ntp true
@@ -14,9 +14,9 @@ if [ $x -eq 0 ]; then
 		drive=${opt%%" "*}
 		echo "Creating partitions on $drive"
 		echo "creating boot partition..."
-		echo -e "o\nn\np\n\n\n+128M\na\nw" | fdisk /dev/$drive >/dev/null
+		printf "o\nn\np\n\n\n+128M\na\nw" | fdisk /dev/"$drive" >/dev/null
 		echo "creating system partition..."
-		echo -e "n\np\n\n\n\nw" | fdisk /dev/$drive >/dev/null
+		printf "n\np\n\n\n\nw" | fdisk /dev/"$drive" >/dev/null
 		#Make filesystems
 		mkfs.ext4 /dev/"$drive"1 >/dev/null
 		mkfs.ext4 /dev/"$drive"2 >/dev/null
