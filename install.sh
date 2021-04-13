@@ -31,7 +31,6 @@ if [ "$x" -eq 0 ]; then
 		cp locale.gen /mnt/etc/
 		cp install_p2.sh /mnt
 		arch-chroot /mnt ./install_p2.sh
-		rm /mnt/install_p2.sh
 		umount -R /mnt
 		echo "Arch is installed on your system!"
 		echo "You are now a Linux elitist!!!"
