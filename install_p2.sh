@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pacman -S networkmanager grub
+pacman -S networkmanager grub xfce4 xfce-goodies sddm
 systemctl enable NetworkManager
 grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
