@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pacman -S networkmanager grub xfce4 xfce-goodies lightdm lightdm-webkit-greeter
+pacman -S networkmanager grub xfce4 xfce4-goodies lightdm lightdm-webkit2-greeter
 systemctl enable NetworkManager
 systemctl enable lightdm
 grub-install /dev/sda
