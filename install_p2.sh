@@ -1,8 +1,8 @@
 #!/bin/bash
 
-pacman -S networkmanager grub xfce4 xfce4-goodies lightdm lightdm-gtk-greeter
+pacman -S networkmanager grub xfce4 xfce4-goodies lightdm lightdm-gtk-greeter,yay
 systemctl enable NetworkManager
-systemctl enable lightdm
+systemctl enable lightdm.service
 grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 echo "Set password for the root user"
