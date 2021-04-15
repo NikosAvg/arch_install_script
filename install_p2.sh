@@ -1,8 +1,9 @@
 #!/bin/bash
 
-pacman -S networkmanager network-manager-applet grub xorg-server xorg-xinit xorg-xrandr rxvt-unicode ranger i3-gaps i3status dmenu lightdm lightdm-gtk-greeter firefox python-pywal
+pacman -S networkmanager pulseaudio network-manager-applet grub xorg-server xorg-xinit xorg-xrandr rxvt-unicode ranger i3-gaps i3status dmenu lightdm lightdm-gtk-greeter firefox python-pywal
 systemctl enable NetworkManager
 systemctl enable lightdm.service
+systemctl enable pulseaudio.service
 grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 echo "Set password for the root user"
