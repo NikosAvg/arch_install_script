@@ -14,9 +14,11 @@ if [ "$x" -eq 0 ]; then
 		drive=${opt%%" "*}
 		echo "Creating partitions on $drive"
 		echo "Creating boot partition..."
-		printf "o\nn\np\n\n\n+128M\na\nw" | fdisk /dev/"$drive" >/dev/null
-		echo "Creating system partition..."
-		printf "n\np\n\n\n\nw" | fdisk /dev/"$drive" >/dev/null
+		echo -e "o\nn\np\n\n\n+128M\na\nw" | fdisk /dev/$drive >/dev/null
+		#printf "o\nn\np\n\n\n+128M\na\nw" | fdisk /dev/"$drive" >/dev/null
+		echo "creating system partition..."
+		echo -e "n\np\n\n\n\nw" | fdisk /dev/$drive >/dev/null
+		#printf "n\np\n\n\n\nw" | fdisk /dev/"$drive" >/dev/null
 		#Make filesystems
 		mkfs.ext4 /dev/"$drive"1 >/dev/null
 		mkfs.ext4 /dev/"$drive"2 >/dev/null
