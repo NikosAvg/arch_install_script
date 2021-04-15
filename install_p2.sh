@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pacman -S networkmanager grub xorg-server xorg xinit rxvt-unicode i3-gaps dmenu polybar lightdm lightdm-gtk-greeter yay
+pacman -S networkmanager grub xorg-server xorg-xinit rxvt-unicode i3-gaps i3status dmenu lightdm lightdm-gtk-greeter
 systemctl enable NetworkManager
 systemctl enable lightdm.service
 grub-install /dev/sda
