@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pacman -S networkmanager grub xorg-server xorg rxvt-unicode plasma plasma-wayland-session kde-applications firefox 
+pacman -S grub plasma-desktop sddm plasma-wayland-session firefox plasma-nm plasma-pa dolphin sddm-kcm konsole kdeplasma-addons powerdevil
 systemctl enable NetworkManager
 systemctl enable sddm.service
 grub-install /dev/sda
