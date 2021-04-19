@@ -1,9 +1,8 @@
 #!/bin/bash
 
-pacman -S grub xorg xf86-video-intel sddm plasma konsole dolphin ark kwrite kcalc spectacle krunner partitionmanager alsa-utils bluez bluez-utils firefox qbittorrent audacious wget screen git neofetch
+pacman -S grub xorg networkmanager firefox xfce4 network-manager-applet lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings git neofetch
 systemctl enable NetworkManager
-systemctl enable sddm.service
-systemctl enable bluetooth.service
+systemctl enable lightdm.service
 grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 echo "Set password for the root user"
