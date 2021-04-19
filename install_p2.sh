@@ -11,5 +11,8 @@ passwd
 locale-gen
 echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 echo "archbox" >> /etc/hostname
+echo "127.0.0.1   localhost" >> /etc/hosts
+echo "::1   localhost" >> /etc/hosts
+echo "127.0.1.1   archbox.localdomain archbox" >> /etc/hosts
 ln -sf /usr/share/zoneinfo/Europe/Athens /etc/localtime
 exit
